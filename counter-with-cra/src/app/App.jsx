@@ -34,7 +34,23 @@ function App() {
 
   // 사이드 이펙트 처리하는 hook 활용해보자!
   React.useEffect(()=>{
-    console.log('componentDidMount');
+    // useEffect에서는 동기만 작성해야함! async 사용할 수 없음.
+    // 중괄호 안에서는 사용할 수 있지만 callback 함수 자체를 async 함수로 만들 수 없음.
+    async function fetchData() {
+      try {
+        const response = await fetch(API_ENDPOINT);
+        const data = await response.json();
+
+        setData(data.results);
+      } catch(error){
+        setError(error);
+      } finally {
+        setIsLoading(false);
+      }
+    }
+    fetchData();
+
+    // console.log('componentDidMount');
   }, [])
   // 여기서 []빈 배열을 넣지 않는다면 상태가 업데이트 될 때 마다 계속해서 리 렌더링이 됨
   // 계속된다면 성능 부분에서 저하될 수 있음. 그래서 기본으로 빈 배열을 넣어줌!!
