@@ -1,8 +1,8 @@
 {
-  "name": "stateless-component",
   "private": true,
-  "version": "0.0.0",
   "type": "module",
+  "name": "stateless-component",
+  "version": "0.0.1",
   "scripts": {
     "start": "npm run dev -- --open",
     "dev": "vite",
