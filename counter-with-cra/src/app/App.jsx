@@ -1,11 +1,12 @@
 import React from 'react';
-import './App.css';
+import classes from './App.module.css';
 import {
   CounterFunction,
   CounterClass,
   Button,
   LifeCycle,
 } from '../components';
+import reactLogo from 'assets/logo.svg';
 
 import { API_ENDPOINT } from '../components/LifeCycle/LifeCycle';
 
@@ -67,6 +68,7 @@ function App() {
   }
   return (
     <div className="App">
+      <ReactLogo title="리액트 로고" />
       <h2>라이프 사이클</h2>
       <button type="button" onClick={handleToggleVisible}>{isVisibleComponents.toString()}</button>
       <LifeCycle />
